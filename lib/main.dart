@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(
       MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: HomeScreen(),
       ),
     );
@@ -27,7 +28,7 @@ class BallScreen extends StatefulWidget {
 }
 
 class _BallScreenState extends State<BallScreen> {
-  int ballNumber = 5;
+  int ballNumber = 1;
 
   void changeBall() {
     setState(() {
@@ -38,17 +39,11 @@ class _BallScreenState extends State<BallScreen> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        children: <Widget>[
-          Expanded(
-            child: FlatButton(
-              child: Image.asset('images/ball$ballNumber.png'),
-              onPressed: () {
-                changeBall();
-              },
-            ),
-          ),
-        ],
+      child: FlatButton(
+        child: Image.asset('images/ball$ballNumber.png'),
+        onPressed: () {
+          changeBall();
+        },
       ),
     );
   }
